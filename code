@@ -1,0 +1,63 @@
+import math
+
+class Hexagon:
+    def __init__(self, side_length):
+        self.side_length = side_length
+
+    def calcArea(self):
+        return 1.5 * math.sqrt(3) * self.side_length ** 2
+
+    def calcPerimeter(self):
+        return 6 * self.side_length
+
+    def calcAngleSum(self):
+        return 6 * 120
+
+    def display(self):
+        print("Hexagon:")
+        print(f"Area: {self.calcArea()}")
+        print(f"Perimeter: {self.calcPerimeter()}")
+        print(f"Sum of Angles: {self.calcAngleSum()}\n")
+
+class Square:
+    def __init__(self, side_length):
+        self.side_length = side_length
+
+    def calcArea(self):
+        return self.side_length ** 2
+
+    def calcPerimeter(self):
+        return 4 * self.side_length
+
+    def display(self):
+        print("Square:")
+        print(f"Area: {self.calcArea()}")
+        print(f"Perimeter: {self.calcPerimeter()}\n")
+
+def main():
+    cnic_last_digit = int(input("Enter the last digit of your CNIC: "))
+
+    if cnic_last_digit < 1 or cnic_last_digit > 9:
+        print("Invalid input. Program terminated.")
+        return
+
+    hexagon = Hexagon(cnic_last_digit)
+    square = Square(cnic_last_digit + 1)
+
+    while True:
+        print("Enter 1 to calculate the area, perimeter, and sum of angles of a hexagon.")
+        print("Enter 2 to calculate the area and perimeter of a square.")
+        print("Press any other key to exit.\n")
+        
+        user_input = input("Enter your choice: ")
+
+        if user_input == '1':
+            hexagon.display()
+        elif user_input == '2':
+            square.display()
+        else:
+            print("Program terminated.")
+            break
+
+if __name__ == "__main__":
+    main()
